@@ -14,7 +14,7 @@ Node that in these example only one type of effects can be handle at a time depe
 
 The evaluation function is written using the monad "interface". In this way it is possible to give a single definition of the eval function and depending on the monad used, without changing too much the code, we can have different functionality (Exceptions, State, Output).
 
-`
+``` haskell
 ------------ MONADIC VERSION
 evalM :: Term -> M Int
 eval (Con a) = return a
@@ -23,4 +23,4 @@ eval (Div t u) = eval t >>=
        \b -> return (specific a b)
 
 -- specific is a specific function depending on the monad used
-`
+```
