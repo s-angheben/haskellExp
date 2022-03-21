@@ -72,8 +72,8 @@ line t a = "eval (" ++ show t ++ ") <= " ++ show a ++ "\n"
 
 ------------ MONADIC VERSION
 -- evalM :: Term -> M Int
--- eval (Con a) = return a
--- eval (Div t u) = eval t >>= 
+-- evalM (Con a) = return a
+-- evalM (Div t u) = eval t >>= 
 --    \a -> eval u >>= 
 --        \b -> return (div a b)
 
