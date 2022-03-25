@@ -1,6 +1,6 @@
 Reference: "Lazy Functional State Thread"
 
-Example.hs: contains example
+Example.hs: contains example \
 Graph.hs: contains a dfs on graph
 
 # ST MONAD
@@ -48,11 +48,10 @@ These means that is possible to compose State transformers to form a larger one.
 Escape the monad
 `runST :: (forall s. ST s a) -> a` with this function is possible to extract a value from the State, so it's possible to define wrapper or larger function that use the ST monad but then only the result is important. runST takes a State transformers, create an initalial State (empty, zero reference) execute the operation and extract the result, discarding the final state.
 
-Important: even if the IO Monad is a special type of State Transformer is not possible to escape tiState Transformer is not possible to escape in that case.
-
 ### IO
 `type IO a = ST RealWorld a`
 
+Important: even if the IO Monad is a special type of State Transformer is not possible to escape the State Transformer, thanks to encapusulation. 
 ### ARRAY
 operations:
     - `newSTArray :: Ix i => (i, i) -> e -> ST s (STArray s i e)` 
