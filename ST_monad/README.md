@@ -27,11 +27,11 @@ This definition is the same as the State Monad but the implemenation update the 
 In this case the state is a finite mapping from reference to value, or reference to indexed arrays.
 
 Some primitive functions:
-- `newSTRef :: a -> ST s (STRef s a)`
+- `newSTRef :: a -> ST s (STRef s a)` \
     create a new pointer and space for the value of type a in the State s. Return the reference. STRef is parameterised over the type s and over the type a.
-- `readSTRef :: STRef s a -> ST s a`
+- `readSTRef :: STRef s a -> ST s a` \
     given a reference return the value pointed without modify the State s.
-- `writeSTRef :: STRef s a -> a -> ST s ()`
+- `writeSTRef :: STRef s a -> a -> ST s ()` \
     update the given reference with the given value of type a.
 
 A State transformer can be see as a thread.
