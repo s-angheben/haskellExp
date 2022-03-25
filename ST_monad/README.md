@@ -40,9 +40,11 @@ A State transformer can be see as a thread.
 The encapsulation is assuered by the type system using parametricity. This requires the provision of a single constant with a rank-2 polumorphic type. 
 
 ### Monad
-ST s is an instance of Monad.
-`return :: a -> ST s a` delivers a value without affecting the state.
-`thenST :: ST s a -> (a -> ST s b) -> ST s b` is the bind operator for ST s moand (>>=).
+ST s is an instance of Monad. \
+- `return :: a -> ST s a` \
+delivers a value without affecting the state.
+- `thenST :: ST s a -> (a -> ST s b) -> ST s b` \
+is the bind operator for ST s moand (>>=).
 These means that is possible to compose State transformers to form a larger one. In case of bind the computations are sequential, because the state consumed by the second computation is thath produced by the first.
 
 Escape the monad
@@ -53,9 +55,9 @@ Escape the monad
 
 Important: even if the IO Monad is a special type of State Transformer is not possible to escape the State Transformer, thanks to encapusulation. 
 ### ARRAY
-operations:
-    - `newSTArray :: Ix i => (i, i) -> e -> ST s (STArray s i e)` 
-    - `readSTArray :: Ix i => STArray s i e -> i -> ST s e`
-    - `writeSTArray :: Ix i => STArray s i e -> i -> e -> ST s ()`
-    - `freezeSTArray :: STArray s i e -> ST s (Array i e)` 
-        Turn a mutable array into a standard haskell array, this is done through a copy. It's usefull for escape the ST monad.
+operations: \
+- `newSTArray :: Ix i => (i, i) -> e -> ST s (STArray s i e)` 
+- `readSTArray :: Ix i => STArray s i e -> i -> ST s e`
+- `writeSTArray :: Ix i => STArray s i e -> i -> e -> ST s ()`
+- `freezeSTArray :: STArray s i e -> ST s (Array i e)` 
+    Turn a mutable array into a standard haskell array, this is done through a copy. It's usefull for escape the ST monad.
