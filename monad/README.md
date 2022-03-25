@@ -20,8 +20,8 @@ The evaluation function is written using the monad "interface". In this way it i
 ``` haskell
 ------------ MONADIC VERSION
 evalM :: Term -> M Int
-eval (Con a) = return a
-eval (Div t u) = eval t >>= 
+evalM (Con a) = return a
+evalM (Div t u) = eval t >>= 
    \a -> eval u >>= 
        \b -> return (specific a b)
 
