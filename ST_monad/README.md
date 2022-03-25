@@ -10,9 +10,9 @@ This is usefull when an algorithm need a mutable state and the performance are i
 
 The ST monad is an "interface" that securely encapsulate stateful computations that manipulate multiple, named, mutable objects and at the same time keeps:
 
-- independence order of evaluation
+- independence order of evaluation \
         Church-Rosser property: "the ordering in which the reductions are chosen does not make a difference to the eventual result". In other words this means that there aren't side effects between functions so the ordern doesn't matter at all.
-- referential transparency
+- referential transparency \
         Every expression can be replaced with its corresponding value without changing the program's behavior. This property give the possibility of equation reasoning.
 
 - lazyness
