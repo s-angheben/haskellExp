@@ -1,4 +1,4 @@
-Reference: "Lazy Functional State Threads"
+Reference: "Lazy Functional State Thread"
 
 Example.hs: contains example
 Graph.hs: contains a dfs on graph
@@ -10,12 +10,12 @@ This is usefull when an algorithm need a mutable state and the performance are i
 
 The ST monad is an "interface" that securely encapsulate stateful computations that manipulate multiple, named, mutable objects and at the same time keeps:
 
-    - independence order of evaluation
+- independence order of evaluation
         Church-Rosser property: "the ordering in which the reductions are chosen does not make a difference to the eventual result". In other words this means that there aren't side effects between functions so the ordern doesn't matter at all.
-    - referential transparency
+- referential transparency
         Every expression can be replaced with its corresponding value without changing the program's behavior. This property give the possibility of equation reasoning.
 
-    - lazyness
+- lazyness
   
 ## State transformer
 A state transformer is a computation which transform a state indexed by the type s and return a value of type a with the new state.
@@ -27,12 +27,12 @@ This definition is the same as the State Monad but the implemenation update the 
 In this case the state is a finite mapping from reference to value, or reference to indexed arrays.
 
 Some primitive functions:
-    - `newSTRef :: a -> ST s (STRef s a)`
-        create a new pointer and space for the value of type a in the State s. Return the reference. STRef is parameterised over the type s and over the type a.
-    - `readSTRef :: STRef s a -> ST s a`
-        given a reference return the value pointed without modify the State s.
-    - `writeSTRef :: STRef s a -> a -> ST s ()`
-        update the given reference with the given value of type a.
+- `newSTRef :: a -> ST s (STRef s a)`
+    create a new pointer and space for the value of type a in the State s. Return the reference. STRef is parameterised over the type s and over the type a.
+- `readSTRef :: STRef s a -> ST s a`
+    given a reference return the value pointed without modify the State s.
+- `writeSTRef :: STRef s a -> a -> ST s ()`
+    update the given reference with the given value of type a.
 
 A State transformer can be see as a thread.
 
