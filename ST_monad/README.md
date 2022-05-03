@@ -55,7 +55,7 @@ Escape the monad
 
 Important: even if the IO Monad is a special type of State Transformer is not possible to escape the State Transformer, thanks to encapusulation. 
 ### ARRAY
-operations: \
+operations: 
 - `newSTArray :: Ix i => (i, i) -> e -> ST s (STArray s i e)` 
 - `readSTArray :: Ix i => STArray s i e -> i -> ST s e`
 - `writeSTArray :: Ix i => STArray s i e -> i -> e -> ST s ()`

@@ -32,7 +32,7 @@ main = do
 --  print $ runState (evalMS answerExpr) 0
 
 --- MonadWriter
---  print $ evalMW answerExpr
+  print $ evalMW answerExpr
 
   let res = getParsedResult termP (fromSList "(15/(6/2))")
   case res of

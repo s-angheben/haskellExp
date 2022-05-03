@@ -1,0 +1,31 @@
+eval (Con 64) <= 64
+eval (Con 2) <= 2
+eval (Div (Con 64) (Con 2)) <= 32
+eval (Con 6) <= 6
+eval (Con 3) <= 3
+eval (Div (Con 6) (Con 3)) <= 2
+eval (Div (Div (Con 64) (Con 2)) (Div (Con 6) (Con 3))) <= 16
+
+
+
+eval (Con 1972) <= 1972
+eval (Con 2) <= 2
+eval (Div (Con 1972) (Con 2)) <= 986
+eval (Con 23) <= 23
+eval (Div (Div (Con 1972) (Con 2)) (Con 23)) <= 42
+
+
+((Right 42,C 2),Log "
+eval (Con 1972) <= 1972
+eval (Con 2) <= 2
+eval (Div (Con 1972) (Con 2)) <= 986
+eval (Con 23) <= 23
+eval (Div (Div (Con 1972) (Con 2)) (Con 23)) <= 42
+")
+
+((Left (Err "divide by zero"),C 2),Log "
+eval (Con 1972) <= 1972
+eval (Con 2) <= 2
+eval (Div (Con 1972) (Con 2)) <= 986
+eval (Con 0) <= 0
+Error: divide by zero!\n")
