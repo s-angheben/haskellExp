@@ -1,2 +1,2 @@
 # haskellExp
-test
+some Haskell examples

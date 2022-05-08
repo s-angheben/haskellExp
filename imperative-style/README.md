@@ -1,6 +1,6 @@
 reference: "Imperative functional programming", "how to declare imperative"
 
-## Imperative AND continuation-passing style
+## Imperative style
 
 As we already seen in the paper "monads for functional programming" monads can be used to create an "interface" to write code more effectively, when we can identify a pattern. In these example we will explore how is possible to write code in a similar way as in imperative programming languages in pure functional languages. In particular I will focus on the IO monad and Cont monad.
 
